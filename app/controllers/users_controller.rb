@@ -1,12 +1,15 @@
 class UsersController < ApplicationController
   def index
-    redirect_to new_user_path unless current_user
-    if current_user.role == "admin"
-      @users = User.all
-    elsif current_user.role == "reader"
-      redirect_to user_articles_path(current_user)
+    if current_user
+      if current_user.role == "admin"
+        @users = User.all
+      elsif current_user.role == "reader"
+        redirect_to user_articles_path(current_user)
+      else
+        redirect_to articles_publisher_path
+      end
     else
-      redirect_to articles_publisher_path
+      redirect_to login_path
     end
   end
 
