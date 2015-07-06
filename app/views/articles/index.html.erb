@@ -1,0 +1,13 @@
+<h1>Listing articles</h1>
+ 
+<table>
+
+<% @articles.each do |article| %>
+     <div>
+		<%= article.title %>
+	    <%= link_to "Show",user_article_path(current_user, article)%>
+	 </div>
+<% end %>
+
+</table>
+
