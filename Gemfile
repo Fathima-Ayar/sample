@@ -26,6 +26,7 @@ gem 'authlogic', '~>3.4.5'
 gem 'bcrypt', '~>3.1.10'
 gem 'responders'
 gem 'acts_as_votable', '~> 0.10.0'
+gem 'protected_attributes'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
