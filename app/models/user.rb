@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   attr_accessible :role
+  
   acts_as_authentic do |c|
      c.crypto_provider = Authlogic::CryptoProviders::BCrypt
   end

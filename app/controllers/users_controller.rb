@@ -22,20 +22,20 @@ class UsersController < ApplicationController
       if @user.save
         flash[:success]= "Registration successfull"
         redirect_to login_path
-      else
-        render :action => 'new'
+        else
+          render :action => 'new'
+        end
       end
-  end
   
   def update  
     @user = current_user  
     if @user.update_attributes(params[:user])  
       flash[:success] = "Successfully updated profile."  
       redirect_to @user 
-    else  
-      render :action => 'edit'
+      else  
+        render :action => 'edit'
+      end  
     end  
-  end  
   
   
   private
