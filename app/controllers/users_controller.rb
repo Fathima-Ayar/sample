@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   def index
+    redirect_to new_user_path unless current_user
     if current_user.role == "admin"
       @users = User.all
     elsif current_user.role == "reader"
