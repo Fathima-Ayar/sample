@@ -13,33 +13,25 @@
 
 ActiveRecord::Schema.define(version: 20150703064832) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "articles", force: :cascade do |t|
-    t.string   "title",      limit: 255
-    t.text     "text",       limit: 65535
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.string   "title"
+    t.text     "text"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "comments", force: :cascade do |t|
-    t.string   "commenter",  limit: 255
-    t.text     "body",       limit: 65535
-    t.integer  "article_id", limit: 4
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.string   "commenter"
+    t.text     "body"
+    t.integer  "article_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_index "comments", ["article_id"], name: "index_comments_on_article_id", using: :btree
-
-  create_table "relationships", force: :cascade do |t|
-    t.integer  "follower_id", limit: 4
-    t.integer  "followed_id", limit: 4
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
-  end
-
-  add_index "relationships", ["followed_id"], name: "index_relationships_on_followed_id", using: :btree
-  add_index "relationships", ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true, using: :btree
-  add_index "relationships", ["follower_id"], name: "index_relationships_on_follower_id", using: :btree
 
   create_table "sessions", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -52,24 +44,25 @@ ActiveRecord::Schema.define(version: 20150703064832) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "username",          limit: 255
-    t.string   "email",             limit: 255
-    t.string   "crypted_password",  limit: 255
-    t.string   "password_salt",     limit: 255
-    t.string   "persistence_token", limit: 255
-    t.string   "role",              limit: 255
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
+    t.string   "username"
+    t.string   "email"
+    t.string   "crypted_password"
+    t.string   "password_salt"
+    t.string   "persistence_token"
+    t.string   "role"
+    t.string   "password_confirmation"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
   end
 
   create_table "votes", force: :cascade do |t|
-    t.integer  "votable_id",   limit: 4
-    t.string   "votable_type", limit: 255
-    t.integer  "voter_id",     limit: 4
-    t.string   "voter_type",   limit: 255
-    t.boolean  "vote_flag",    limit: 1
-    t.string   "vote_scope",   limit: 255
-    t.integer  "vote_weight",  limit: 4
+    t.integer  "votable_id"
+    t.string   "votable_type"
+    t.integer  "voter_id"
+    t.string   "voter_type"
+    t.boolean  "vote_flag"
+    t.string   "vote_scope"
+    t.integer  "vote_weight"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
