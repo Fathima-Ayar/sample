@@ -7,5 +7,4 @@ class User < ActiveRecord::Base
   has_many :articles
   has_many :comments
   acts_as_voter
-
 end
