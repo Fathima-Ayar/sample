@@ -25,8 +25,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'authlogic', '~>3.4.5'
 gem 'bcrypt', '~>3.1.10'
 gem 'responders'
-gem 'acts_as_votable', '~> 0.10.0'
 gem 'protected_attributes'
+gem 'acts_as_votable', '~> 0.10.0'
 gem 'taps', '~> 0.3.23'
 ruby "2.1.5"
 
