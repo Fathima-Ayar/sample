@@ -39,17 +39,16 @@ class UsersController < ApplicationController
       redirect_to @user 
       else  
         render :action => 'edit'
-      end  
     end  
+  end  
     
-    def admin
-       
-    end
+  def admin
+  end
 
   
-    def show
-      @user = User.find(params[:id])
-    end
+  def show
+    @user = User.find(params[:id])
+  end
   
   private
   def user_params
