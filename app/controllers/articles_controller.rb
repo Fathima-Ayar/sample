@@ -1,4 +1,5 @@
 class ArticlesController < ApplicationController
+  
   def index
    @articles = Article.all
   end
@@ -18,6 +19,8 @@ class ArticlesController < ApplicationController
   
   def edit
     @article = Article.find(params[:id])
+  
+     #@article = current_user.articles.find(params[:id])
   end
 
   def update

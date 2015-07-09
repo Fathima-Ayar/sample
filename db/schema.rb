@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(version: 20150707121232) do
     t.string   "crypted_password"
     t.string   "password_salt"
     t.string   "persistence_token"
-    t.string   "role"
+    t.string   "role"  :default => 'reader'
     t.string   "password_confirmation"
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false

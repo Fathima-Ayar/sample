@@ -1,7 +1,6 @@
-<% @article.comments.each do |comment| %>
 <p>
   <strong>Commenter:</strong>
-  <%= comment.commenter %>
+<%= comment.commenter  %> 
 </p>
  
 <p>
@@ -13,4 +12,3 @@
                method: :delete,
                data: { confirm: 'Are you sure?' } %>
 </p>
-<% end %>

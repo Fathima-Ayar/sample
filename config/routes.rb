@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'login', :controller => 'user_sessions', :action => 'new'  
   get 'logout', :controller => 'user_sessions', :action => 'destroy'  
   get 'articles/publisher'
+  get 'users/admin'
   root  'users#index'
 
   resources :user_sessions 

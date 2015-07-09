@@ -11,7 +11,7 @@
     </div>
     <% end %>
     
-      
+   
     <%= f.label :username, "Username" %>  
     <%= f.text_field :username %>  <br/>
     <%= f.label :email, "Email" %>  
@@ -19,14 +19,13 @@
     <%= f.label :password, "Password" %>  
     <%= f.password_field :password %> </br>  
     <%= f.label :password_confirmation, "Confirm Password" %>  
-    <%= f.password_field :password_confirmation %> </br>  
-    <%= f.label :role, "Role" %>
-    <%= f.select :role, [['Admin','admin'],['Reader','reader'],['Publisher','publisher']] %></br>
-      
-    <%= f.submit "Submit" %>  
-        
+    <%= f.password_field :password_confirmation %> </br> 
+    <%= f.hidden_field :role , :value=>'reader' %>
+
+    <%= f.submit "Submit"
+   
+
      
-    <% end %>  
- 
+    
      
     

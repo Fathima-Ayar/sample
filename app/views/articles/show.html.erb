@@ -7,12 +7,20 @@
   <%= @article.text %>
 </p>
 
+<h3>Comments(<%= @article.comments.count %>)</h3>
+
 <h3>Comments:</h3>
   <%= render @article.comments %>
 
 <h3>Add a comment:</h3>
   <%= render 'comments/form' %>
-
+   
+<% if current_user.role=='publisher' %>
+  <p>
+    <strong>Likes:</strong>
+    <%= @article.get_likes.size %>
+  </p>
+<% end %>
   <% if current_user.role=='reader' %>
     <% if current_user.liked? @article %>
       <%= link_to "Dislike", dislike_article_path(@article), class: 'vote', method: :put %>
@@ -23,6 +31,7 @@
       <strong>Likes:</strong>
       <%= @article.get_likes.size %>
     </p>
+    <%= link_to "back", user_articles_path(current_user) %>
   <% end %>
 
 

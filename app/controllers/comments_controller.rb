@@ -2,6 +2,7 @@ class CommentsController < ApplicationController
 
 
   def create
+    @user = User.find(params[:user_id])
     @article = Article.find(params[:article_id])
     @comment = @article.comments.create(comment_params)
     if @comment.save

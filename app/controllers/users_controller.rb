@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+
   def index
     if current_user
       if current_user.role == "admin"
@@ -24,11 +25,11 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
       if @user.save!
-        flash[:success]= "Registration successfull"
         redirect_to login_path
         else
           render :action => 'new'
-        end
+      end
+        
       end
   
   def update  
@@ -40,7 +41,15 @@ class UsersController < ApplicationController
         render :action => 'edit'
       end  
     end  
+    
+    def admin
+       
+    end
+
   
+    def show
+      @user = User.find(params[:id])
+    end
   
   private
   def user_params

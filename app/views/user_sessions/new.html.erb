@@ -1,4 +1,6 @@
 <% provide(:title,' Login') %>  
+<h1>Log in</h1>
+
       
 <%= form_for @user_session, html: { class: 'form-horizontal', role: 'form' } do |f| %>  
   <div class='form-group'>
@@ -8,4 +10,5 @@
     <%= f.password_field :password, class: 'form-control', placeholder: 'Password' %>
   </div>
   <%= f.submit 'Login', class: 'btn btn-primary' %>
+  <p>New user? <%= link_to "Sign up now!", new_user_path %></p>
   <% end %>

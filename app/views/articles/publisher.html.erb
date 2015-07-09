@@ -5,7 +5,7 @@
 <% @articles.each do |article| %>
      <div>
 		<%= article.title %>
-	    <%= link_to "Edit",edit_user_article_path(current_user, article) %>
+        <%= link_to "Edit",edit_user_article_path(current_user, article) %>
 	    <%= link_to "Show",user_article_path(current_user, article)%>
 	 </div>
 <% end %>

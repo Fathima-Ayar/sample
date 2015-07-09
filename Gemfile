@@ -27,6 +27,8 @@ gem 'bcrypt', '~>3.1.10'
 gem 'responders'
 gem 'acts_as_votable', '~> 0.10.0'
 gem 'taps', '~> 0.3.23'
+gem 'cancancan', '~> 1.10'
+
 ruby "2.1.5"
 
 # Use ActiveModel has_secure_password
