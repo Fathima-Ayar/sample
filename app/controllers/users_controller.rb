@@ -4,7 +4,6 @@ class UsersController < ApplicationController
     if current_user
       if current_user.role == "admin"
         @users = User.all
-        @users.delete(current_user)
       elsif current_user.role == "reader"
         redirect_to user_articles_path(current_user)
       else
