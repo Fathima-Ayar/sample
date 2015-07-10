@@ -6,6 +6,11 @@ Rails.application.routes.draw do
   get 'articles/publisher'
   get 'users/admin'
   root  'users#index'
+  resources :users do
+  member do
+    get :posts
+  end
+end
 
   resources :user_sessions 
   

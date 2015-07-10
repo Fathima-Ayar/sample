@@ -1,14 +1,12 @@
-<p>
-  <strong>Commenter:</strong>
-<%= comment.commenter  %> 
-</p>
+  <%= comment.commenter %> says:
+  <p><%=comment.body %></p>
+  <strong>Posted <%= time_ago_in_words(comment.created_at) %> ago.</strong></br>
+
  
-<p>
-  <strong>Comment:</strong>
-  <%= comment.body %>
-</p>
-<p>
-  <%= link_to 'Destroy Comment', [current_user,comment.article, comment],
+  <p>
+    <% if current_user.username==comment.commenter %>
+      <%= link_to 'Delete',[current_user,comment.article, comment],
                method: :delete,
                data: { confirm: 'Are you sure?' } %>
-</p>
+    <% end %>
+  </p>

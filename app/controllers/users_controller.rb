@@ -26,11 +26,11 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-      if @user.save!
-        redirect_to login_path
-        else
-          render :action => 'new'
-      end
+    if @user.save!
+      redirect_to login_path
+    else
+        render :action => 'new'
+    end
   end
   
   def update  
@@ -38,15 +38,11 @@ class UsersController < ApplicationController
     if @user.update_attributes(params[:user])  
       flash[:success] = "Successfully updated profile."  
       redirect_to @user 
-      else  
-        render :action => 'edit'
+    else  
+      render :action => 'edit'
     end  
   end  
-    
-  def admin
-  end
 
-  
   def show
     @user = User.find(params[:id])
   end

@@ -1,4 +1,4 @@
-<%= form_for @user do |f| %>  
+  <%= form_for @user do |f| %>  
     <% if @user.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@user.errors.count, "error") %> Invalid User:</h2>
@@ -11,7 +11,7 @@
     </div>
     <% end %>
     
-   
+    
     <%= f.label :username, "Username" %>  
     <%= f.text_field :username %>  <br/>
     <%= f.label :email, "Email" %>  
@@ -23,7 +23,6 @@
     <%= f.label :role, "role" %>
     <%= f.text_field :role %> </br> 
     <%= f.submit "Submit" %>
-     
   <% end %>
      
     

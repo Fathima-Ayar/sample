@@ -1,8 +1,7 @@
-<% provide(:title,' Login') %>  
-<h1>Log in</h1>
+  <% provide(:title,' Login') %>  
+  <h1>Log in</h1>
 
-      
-<%= form_for @user_session, html: { class: 'form-horizontal', role: 'form' } do |f| %>  
+  <%= form_for @user_session, html: { class: 'form-horizontal', role: 'form' } do |f| %>  
   <div class='form-group'>
     <%= f.text_field :username, class: 'form-control', placeholder: 'Username' %>
   </div>

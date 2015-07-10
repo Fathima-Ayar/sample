@@ -1,0 +1,12 @@
+<h1>Publisher</h1>
+<%= link_to "Add New Article", new_user_article_path(current_user) %>
+<table>
+<h2>Articles</h2>
+<% @articles.each do |article| %>
+  <div>
+    <%= article.title %>
+    <%= link_to "Edit",edit_user_article_path(current_user, article) %>
+	<%= link_to "Show",user_article_path(current_user, article)%>
+  </div>
+</table>
+<% end %>

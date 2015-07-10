@@ -19,8 +19,6 @@ class ArticlesController < ApplicationController
   
   def edit
     @article = Article.find(params[:id])
-  
-     #@article = current_user.articles.find(params[:id])
   end
 
   def update
@@ -44,7 +42,7 @@ class ArticlesController < ApplicationController
   def like
     @article = Article.find(params[:id])
     @article.liked_by current_user
-      redirect_to user_articles_path(current_user)
+    redirect_to user_articles_path(current_user)
   end
 
   def dislike
