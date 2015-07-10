@@ -6,8 +6,10 @@ class UsersController < ApplicationController
         @users = User.all
       elsif current_user.role == "reader"
         redirect_to user_articles_path(current_user)
-      else
+      elsif current_user.role == "publisher"
         redirect_to articles_publisher_path
+      else
+         redirect_to user_articles_path(current_user)
       end
     else
       redirect_to login_path
@@ -29,8 +31,7 @@ class UsersController < ApplicationController
         else
           render :action => 'new'
       end
-        
-      end
+  end
   
   def update  
     @user = current_user  
