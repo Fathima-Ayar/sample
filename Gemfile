@@ -28,6 +28,12 @@ gem 'responders'
 gem 'acts_as_votable', '~> 0.10.0'
 gem 'taps', '~> 0.3.23'
 gem 'cancancan', '~> 1.10'
+gem 'bootstrap-sass', '~> 3.2.0.0'
+gem 'autoprefixer-rails'
+gem 'gravtastic'
+gem 'paperclip', '~> 4.1'
+
+
 
 ruby "2.1.5"
 

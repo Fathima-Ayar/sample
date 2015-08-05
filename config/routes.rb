@@ -3,27 +3,42 @@ Rails.application.routes.draw do
   
   get 'login', :controller => 'user_sessions', :action => 'new'  
   get 'logout', :controller => 'user_sessions', :action => 'destroy'  
-  get 'articles/publisher'
-  get 'users/admin'
+  #get 'articles/publisher'
+  get 'users/change_password' 
   root  'users#index'
   resources :users do
-  member do
-    get :posts
+    member do
+      get :posts
+    end
   end
-end
 
   resources :user_sessions 
+  resources :password_resets, :only => [ :new, :create, :edit, :update ]
   
-   resources :articles do
+
+  resources :articles do
     member do
         put "like", to: "articles#like"
         put "dislike", to: "articles#dislike"
     end
-   end
+  end
+
+  
+  resources :articles do
+    member do
+        get "publisher"
+    end
+  end
 
   resources :users do
     resources :articles do
       resources :comments 
+    end
+  end
+
+  resources :users do
+    member do
+      get 'confirm_email'
     end
   end
   

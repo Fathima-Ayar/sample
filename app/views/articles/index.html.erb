@@ -1,11 +1,18 @@
+
 <h1>Listing articles</h1> 
 
 <table>
 <% @articles.each do |article| %>
-     <div>
-		<%= article.title %>
-	    <%= link_to "Show",user_article_path(current_user, article)%>
+  <div>
+    <tr>
+      <td><div class="round-image-50"><%= image_tag(article.user.avatar.url(:thumb)) %></div></td>
+    </tr>
+   	  <tr>
+   	  	<td><%= article.user.username %></td>
+   	    <td><%= link_to article.title,user_article_path(current_user, article)%></td>
+        <td>Posted <%= time_ago_in_words(article.created_at) %> ago.</td>
+	  </tr>
+
 	 </div>
 <% end %>
 </table>
-

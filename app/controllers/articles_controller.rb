@@ -9,9 +9,10 @@ class ArticlesController < ApplicationController
   end
 
   def create
-   @article = Article.new(article_params)
+    @user = current_user
+    @article = @user.articles.create(article_params)
     if @article.save
-      redirect_to articles_publisher_path
+      redirect_to publisher_article_path(current_user)
     else
       render 'new'
     end
@@ -23,9 +24,9 @@ class ArticlesController < ApplicationController
 
   def update
     @article = Article.find(params[:id])
- 
-    if @article.update(article_params)
-      redirect_to articles_publisher_path
+   if @article.update(article_params)
+      flash[:success] = "Successfully updated."
+      redirect_to publisher_article_path
     else
       render 'edit'
     end
@@ -51,6 +52,14 @@ class ArticlesController < ApplicationController
     redirect_to user_articles_path(current_user)
   end
 
+  def destroy
+    #@user=User.find(params[:user_id])
+    @article = Article.find(params[:id])
+    @article.destroy
+    flash[:success] = "Article deleted"
+    redirect_to publisher_article_path(current_user)
+  end
+ 
 private
   def article_params
     params.require(:article).permit(:title, :text)

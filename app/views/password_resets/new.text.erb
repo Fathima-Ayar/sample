@@ -1,0 +1,8 @@
+Reset Password
+
+Please enter your email address below and then press "Reset Password"
+
+<%= form_for :password_resets_path do |f| %>
+  <%= f.text_field :email, placeholder: 'email' %>
+  <%= f.submit "Reset Password" %>
+<% end %> 

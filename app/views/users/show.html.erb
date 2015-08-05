@@ -1,5 +1,8 @@
+
+<p id="notice"><%= notice %></p>
 <h1>Publisher</h1>
 <%= link_to "Add New Article", new_user_article_path(current_user) %>
+<% provide(:title, @user && user.username) %>
 <table>
 <h2>Articles</h2>
 <% @articles.each do |article| %>

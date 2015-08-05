@@ -1,4 +1,5 @@
 class UserSessionsController < ApplicationController
+  
   def new
     @user_session=UserSession.new
   end
@@ -6,9 +7,15 @@ class UserSessionsController < ApplicationController
   def create
     @user_session = UserSession.new(params[:user_session])  
     if @user_session.save
-       redirect_to root_path
+      if current_user.role=='admin'
+        redirect_to root_path  
+        else @user && @user.email_confirmed
+          flash[:success] = "Login successful."
+          redirect_to root_path 
+        end
     else
-      redirect_to new_user_session_path
+     
+      redirect_to new_user_session_path, notice: "Invalid user/password combination"
     end
   end
 

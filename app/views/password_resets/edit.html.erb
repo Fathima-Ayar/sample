@@ -1,0 +1,10 @@
+<h1>Update your password</h1>
+
+<p>Please enter the new password below and then press "Update Password".</p>
+<%= form_for @user, :url => password_reset_path(params[:id]) do |f| %>
+  <%= f.label :password %>
+  <%= f.password_field :password %></br>
+  <%= f.label :password_confirmation%>
+  <%= f.password_field :password_confirmation %> </br>  
+  <%= f.submit "Update Password", class: "btn btn-lg btn-primary" %>
+<% end %>

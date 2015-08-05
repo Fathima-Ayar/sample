@@ -1,13 +1,23 @@
+<%= flash[:notice] %>
 <h1>Publisher</h1>
+<div class="round-image-50"><%= image_tag(current_user.avatar.url(:thumb)) %></div>
+<%= current_user.username%></br>
 <%= link_to "Add New Article", new_user_article_path(current_user) %>
-
-<table>
 <h2>Articles</h2>
+<table>
 <% @articles.each do |article| %>
-     <div>
-		<%= article.title %>
-        <%= link_to "Edit",edit_user_article_path(current_user, article) %>
-	    <%= link_to "Show",user_article_path(current_user, article)%>
-	 </div>
+   <tr><div class="round-image-50"><%= image_tag(article.user.avatar.url(:thumb)) %></div>
+    <%= article.user.username %></tr></br>
+  <tr>
+    <%= link_to article.title,user_article_path(current_user, article)%>
+    Posted <%= time_ago_in_words(article.created_at) %> ago.</tr>
+    <% if current_user.id == article.user_id%>
+      <%= link_to "Edit",edit_user_article_path(current_user, article)%>
+      <%= link_to 'Delete', article,  data: { confirm: "Are you sure?" }, :method => :delete%>
+    <% end %>
+  </tr>     
 <% end %>
 </table>
+  
+  
+  
